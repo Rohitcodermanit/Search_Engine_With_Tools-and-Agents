@@ -10,6 +10,17 @@ from langchain.agents import initialize_agent,AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 
 from dotenv import load_dotenv
+load_dotenv()
+
+# Get API key from HF Secrets
+api_key = os.getenv("GROQ_API_KEY")
+
+st.title("LangChain - Chat With Web Search")
+
+# Ensure API key exists
+if not api_key:
+    st.error("🚨 Missing API key! Set GROQ_API_KEY in Hugging Face → Settings → Variables.")
+    st.stop()
 
 #used the inbuild tools of wikipedia,arxiv tools
 api_wrapper=WikipediaAPIWrapper(top_k_results=1,doc_content_chars_max=250)
