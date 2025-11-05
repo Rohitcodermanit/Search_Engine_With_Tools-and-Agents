@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 # Install Python dependencies
 RUN src/ ./src/
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all project files
 COPY . /app
@@ -25,6 +25,7 @@ COPY . /app
 # Expose default port for Hugging Face Spaces
 EXPOSE 8051
 
-HEALTHCHECK CMD curl --fail http://localhost:8051/_stcore/heath
+HEALTHCHECK CMD curl --fail http://localhost:8051/_stcore/heath || exit 1
 
 ENTRYPOINT [ "streamlit", "run", "src/main.py", "--server.port=8051", "--server.address=0.0.0.0" ]
+
