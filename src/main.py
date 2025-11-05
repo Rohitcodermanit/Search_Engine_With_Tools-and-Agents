@@ -53,7 +53,7 @@ if prompt := st.chat_input("Ask anything..."):
     agent = initialize_agent(
         tools=tools,
         llm=llm,
-        agent=AgentType..CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+        agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         handle_parsing_errors=True
     )
 
