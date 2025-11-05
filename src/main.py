@@ -53,7 +53,7 @@ if prompt := st.chat_input("Ask anything..."):
     agent = initialize_agent(
         tools=tools,
         llm=llm,
-        agent=AgentType.OPENAI_FUNCTIONS,
+        agent=AgentType..CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         handle_parsing_errors=True
     )
 
@@ -61,5 +61,5 @@ if prompt := st.chat_input("Ask anything..."):
         cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
         response = agent.invoke({"input": prompt}, callbacks=[cb])
         st.session_state.messages.append({"role": "assistant", "content": response})
-        st.write(response)
+        st.write(response["output"])
 
