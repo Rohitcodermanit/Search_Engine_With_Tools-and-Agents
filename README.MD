@@ -3,8 +3,8 @@ title: Search Engine With Tools and Agents
 emoji: 🔍
 colorFrom: purple
 colorTo: blue
-sdk: gradio
+sdk: streamlit
 sdk_version: 4.0.0
-app_file: Main.py
+app_file: main.py
 pinned: false
 ---
