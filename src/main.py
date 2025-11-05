@@ -55,6 +55,8 @@ if prompt := st.chat_input("Ask anything..."):
         llm=llm,
         agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         handle_parsing_errors=True
+        max_iterations=15,
+        verbose=True
     )
 
     with st.chat_message("assistant"):
