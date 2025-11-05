@@ -19,6 +19,10 @@ if not api_key:
     st.stop()
 
 st.title("🔎 LangChain - Chat With Web Search")
+"""
+In this example, we are using 'streamlitcallbackhandler to display the thoughts and actions'.
+Try more langchain streamlit Agent examples at [github.com/langchain-ai/streamlit-agent]
+"""
 
 # Tools
 wiki = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=250))
