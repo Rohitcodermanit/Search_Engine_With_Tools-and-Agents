@@ -25,9 +25,12 @@ Try more langchain streamlit Agent examples at [github.com/langchain-ai/streamli
 """
 
 # Tools
-wiki = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=250))
-arxiv = ArxivQueryRun(api_wrapper=ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=250))
-search = DuckDuckGoSearchResults(name="Search")
+api_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=250)
+wiki = WikipediaQueryRun(name="wikipedia", api_wrapper=api_wrapper)
+
+api_wrapper_arxiv = ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=250)
+arxiv = ArxivQueryRun(name="arxiv", api_wrapper=api_wrapper_arxiv)
+search = DuckDuckGoSearchResults(name="search")
 
 # Message log
 if "messages" not in st.session_state:
