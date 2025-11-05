@@ -15,8 +15,6 @@ load_dotenv()
 # Get API key from HF Secrets
 api_key = os.getenv("GROQ_API_KEY")
 
-st.title("LangChain - Chat With Web Search")
-
 # Ensure API key exists
 if not api_key:
     st.error("🚨 Missing API key! Set GROQ_API_KEY in Hugging Face → Settings → Variables.")
